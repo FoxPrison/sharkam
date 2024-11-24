@@ -1,0 +1,195 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f4f4f9, #e6e6fa);
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(90deg, #007bff, #4c8df5);
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Main Content Styling */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem 1rem;
+    gap: 2rem;
+}
+
+/* Plan Cards */
+.plan {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.plan:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.plan h2 {
+    text-align: center;
+    color: #2252d9;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.discount {
+    text-align: center;
+    color: #e44d37;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.price {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.price span {
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+ul li {
+    padding: 0.6rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* BUSINESS PLAN: All points have green balls */
+.plan.business li:before {
+    content: '';
+    margin-right: 0.8rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #4caf50; /* Green for Business */
+}
+
+/* PRO PLAN: Specific points have green balls, others have red balls */
+.plan.pro li:before {
+    content: '';
+    margin-right: 0.8rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+/* Green balls for PRO where applicable */
+.plan.pro li:nth-child(1):before, /* Gratis domæne */
+.plan.pro li:nth-child(2):before, /* Webshop */
+.plan.pro li:nth-child(4):before, /* Datatrafik */
+.plan.pro li:nth-child(5):before, /* Brug eget domæne */
+.plan.pro li:nth-child(6):before, /* Premium-kundeservice */
+.plan.pro li:nth-child(7):before, /* E-mailkonti */
+.plan.pro li:nth-child(8):before, /* Google Analytics */
+.plan.pro li:nth-child(3):before { /* Lagerplads 6 GiB */
+    background-color: #4caf50; /* Green */
+}
+
+/* Red balls for the rest of PRO */
+.plan.pro li:nth-child(n+9):before {
+    background-color: #e44d37; /* Red */
+}
+
+/* STANDARD PLAN: Specific points have green balls, others have red balls */
+.plan.standard li:before {
+    content: '';
+    margin-right: 0.8rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+/* Green balls for Standard where applicable */
+.plan.standard li:nth-child(1):before, /* Gratis domæne */
+.plan.standard li:nth-child(2):before, /* Webshop */
+.plan.standard li:nth-child(4):before, /* Datatrafik */
+.plan.standard li:nth-child(5):before, /* Brug eget domæne */
+.plan.standard li:nth-child(6):before, /* Premium-kundeservice */
+.plan.standard li:nth-child(7):before, /* E-mailkonti */
+.plan.standard li:nth-child(8):before, /* Google Analytics */
+.plan.standard li:nth-child(3):before { /* Lagerplads 3 GiB */
+    background-color: #4caf50; /* Green */
+}
+
+/* Red balls for the rest of Standard */
+.plan.standard li:nth-child(n+9):before {
+    background-color: #e44d37; /* Red */
+}
+
+/* Button Styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Layout: 3 columns on large screens, 2 columns on medium, 1 column on small */
+@media (min-width: 1024px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
